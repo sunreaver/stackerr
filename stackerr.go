@@ -45,13 +45,13 @@ func New(err interface{}) *StackErr {
 }
 
 func (this *StackErr) Error() string {
-	return fmt.Sprintf("{%s:%d} %s", this.Filename, this.Line, this.ErrorMessage)
+	return this.ErrorMessage
 }
 
 func (this *StackErr) Stack() string {
-	return this.StackTrace
+	return fmt.Sprintf("{%s:%d} %s\nStack Info:\n %s", this.Filename, this.Line, this.ErrorMessage, this.StackTrace)
 }
 
 func (this *StackErr) Detail() string {
-	return fmt.Sprintf("{%s:%d} %s\nStack Info:\n %s", this.Filename, this.Line, this.ErrorMessage, this.StackTrace)
+	return fmt.Sprintf("{%s:%d} %s", this.Filename, this.Line, this.ErrorMessage)
 }

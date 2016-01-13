@@ -15,8 +15,8 @@ func Test_New(t *testing.T) {
 			So(err.Filename, ShouldEqual, "stackerr_test.go")
 			So(err.Line, ShouldEqual, 14)
 			So(err.ErrorMessage, ShouldEqual, "Something Wrong")
-			So(err.Error(), ShouldEqual, "{stackerr_test.go:14} Something Wrong")
-			Println(err.Detail())
+			So(err.Detail(), ShouldEqual, "{stackerr_test.go:14} Something Wrong")
+			//Println(err.Detail())
 		})
 
 		Convey("param are StackErr", func() {
